@@ -30,7 +30,8 @@ public class UserService {
 	}
 	
 	public void save(User user) {
-		encodePassword(user);		
+		encodePassword(user);
+		user.setEnabled(true);		
 		userRepo.save(user);
 	}
 	
