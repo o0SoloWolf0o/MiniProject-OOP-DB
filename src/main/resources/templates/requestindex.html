@@ -41,6 +41,7 @@
 				<th><a th:href="@{'/request/page/' + ${currentPage} + '?sortField=description&sortDir=' + ${reverseSortDir}+ ${keyword != null ? '&keyword=' + keyword : ''}}">Description</a></th>
 				<th><a th:href="@{'/request/page/' + ${currentPage} + '?sortField=branch&sortDir=' + ${reverseSortDir}+ ${keyword != null ? '&keyword=' + keyword : ''}}">Branch</a></th>
 				<th><a th:href="@{'/request/page/' + ${currentPage} + '?sortField=status&sortDir=' + ${reverseSortDir}+ ${keyword != null ? '&keyword=' + keyword : ''}}">Status</a></th>
+				<th><a th:href="@{'/request/page/' + ${currentPage} + '?sortField=type&sortDir=' + ${reverseSortDir}+ ${keyword != null ? '&keyword=' + keyword : ''}}">Type</a></th>
 
 				<th sec:authorize="hasAnyAuthority('Admin')">Actions</th>
 				
@@ -55,6 +56,7 @@
 				<td th:text="${request.description}">Description</td>
 				<td th:text="${request.branch}">Branch</td>
 				<td th:text="${request.status}">Status</td>
+				<td th:text="${request.type}">Type</td>
 				<td sec:authorize="hasAnyAuthority('Admin')">
 					<a th:href="@{'/request/edit/' + ${request.id}}">Edit</a>
 					&nbsp;&nbsp;&nbsp;&nbsp;
