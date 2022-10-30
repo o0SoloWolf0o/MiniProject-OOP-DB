@@ -4,8 +4,8 @@
 <head>
 	<title>List Users</title>
 	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
-	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
-	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+	<!-- <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script> -->
+    <!-- <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script> -->
 </head>
 <body>
 <div class="container text-center">
@@ -32,6 +32,7 @@
 					<th>First Name</th>
 					<th>Last Name</th>
 					<th>Roles</th>
+					<th>Telphone</th>
 					<th></th>
 				</tr>
 			</thead>
@@ -42,6 +43,7 @@
 					<td th:text="${user.firstname}">First Name</td>
 					<td th:text="${user.lastname}">Last Name</td>
 					<td th:text="${user.roles}">Roles</td>
+					<td th:text="${user.telphone}">Telphone</td>
 					<td><a th:href="@{'/users/edit/' + ${user.id}}">Edit</a></td>
 				</tr>
 			</tbody>

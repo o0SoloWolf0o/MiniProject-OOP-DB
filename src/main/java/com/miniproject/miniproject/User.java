@@ -23,6 +23,9 @@ public class User {
 	@Column(name = "last_name", nullable = false, length = 20)
 	private String lastname;
     
+    @Column(nullable = false)
+    private String telphone;
+
     private boolean enabled;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -85,6 +88,14 @@ public class User {
         this.lastname = lastname;
     }
 
+    public String getTelphone() {
+        return telphone;
+    }
+
+    public void setTelphone(String telphone) {
+        this.telphone = telphone;
+    }
+    
 	public String getFullName() {
 		return this.firstname + " " + this.lastname;
 	}
@@ -109,25 +120,5 @@ public class User {
 		this.roles.add(role);
 	}
 
-    // @Column(nullable = false)
-    // private String telphone;
 
-    // public void setTel(String tel) {
-        // this.tel = telphone;
-    // }
-
-    // public String getTel() {
-        // return telphone;
-    // }
-
-    // @Column(nullable = false)
-    // private Date birthday;
-
-    // public void setBirthday(Date birthday) {
-        // this.birthday = birthday;
-    // }
-
-    // public Date getBirthday() {
-        // return birthday;
-    // }
 }
