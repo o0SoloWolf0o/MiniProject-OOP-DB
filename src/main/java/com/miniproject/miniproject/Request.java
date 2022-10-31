@@ -29,10 +29,7 @@ public class Request {
 
 	@Column(name = "Status", nullable = false)
 	private String status;
-
-	@Column(name = "Type", nullable = false)
-	private String type;
-
+	
 	protected Request() {
 	}
 
@@ -90,14 +87,6 @@ public class Request {
 
 	public void setStatus(String status) {
 		this.status = status;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
 	}
 
 	@Override
