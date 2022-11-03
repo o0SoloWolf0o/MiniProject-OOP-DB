@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
-    <title>Welcome</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ratatuilay</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link
       rel="stylesheet"
       type="text/css"
@@ -16,18 +22,22 @@
       src="/webjars/bootstrap/js/bootstrap.min.js">
     </script>
   </head>
+  
   <body>
     <div class="container text-center">
       <div>
         <h1>Welcome to the Spring Boot Demo</h1>
       </div>
 
-      <div>
-        <h3><a th:href="@{/register}">Register</a></h3>
-        <h3><a th:href="@{/login}">Login</a></h3>
-        <h3><a th:href="@{/users}">List of Users</a></h3>
-        <h3><a th:href="@{/request}">List of Products</a></h3>
-      </div>
+      <nav class="navbar">
+        
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/users}">List of Users</a>
+        <a th:href="@{/request}">List of Products</a>
+        <a th:href="@{/login}">Login</a>
+        <a th:href="@{/register}">Register</a>
+    </nav>
+
     </div>
   </body>
 </html>

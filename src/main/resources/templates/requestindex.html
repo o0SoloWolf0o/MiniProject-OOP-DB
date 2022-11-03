@@ -4,6 +4,11 @@
 <title>Request Manager</title>
 </head>
 <body>
+
+<nav class="navbar">
+    <a th:href="@{/}">Home</a>
+</nav>
+
 <div align="center">
 	<div sec:authorize="isAuthenticated()">
 		Welcome <b><span sec:authentication="name">Username</span></b>
