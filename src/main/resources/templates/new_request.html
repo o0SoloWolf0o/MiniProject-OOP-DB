@@ -15,12 +15,12 @@
 		<form action="#" th:action="@{/request/save}" th:object="${request}" method="post">
 			<table border="0" cellpadding="10">
 				<tr>
-					<td>Request Name:</td>
+					<td>Product ID:</td>
 					<td>
-						<input 
+						<input
 						type="text" 
-						th:field="*{name}" 
-						placeholder="Name of product"
+						th:field="*{product_id}" 
+						placeholder="Enter Product ID"
 						/>
 					</td>
 				</tr>
@@ -33,7 +33,27 @@
 						placeholder="Amount of product"
 						/>
 					</td>
-				</tr>				
+				</tr>		
+				<tr>
+					<td>Request Name:</td>
+					<td>
+						<input 
+						type="text" 
+						th:field="*{name}" 
+						placeholder="Name of who order"
+						/>
+					</td>
+				</tr>
+				<tr>
+					<td>Branch:</td>
+					<td>
+						<select th:field="*{branch}">
+							<option value="KMUTT">KMUTT</option>
+							<option value="KMUTNB">KMUTNB</option>
+							<option value="KMITL">KMITL</option>
+						</select>
+					</td>
+				</tr>
 				<tr>
 					<td>Date:</td>
 					<td>
@@ -55,23 +75,11 @@
 					</td>
 				</tr>	
 				<tr>
-					<td>Branch:</td>
-					<td>
-						<input 
-						type="text" 
-						th:field="*{branch}" 
-						placeholder="Branch"
-						/>
-					</td>
-				</tr>
-				<tr>
 					<td>Status:</td>
 					<td>
-						<input 
-						type="text" 
-						th:field="*{status}" 
-						placeholder="Status"
-						/>
+						<select th:field="*{status}">
+							<option value="Preparing">Preparing</option>
+						</select>
 					</td>
 				</tr>
 

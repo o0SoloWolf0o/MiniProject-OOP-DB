@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class Request {
 
 	@Id
-	@Column(name = "request_id")
+	@Column(name = "Request_Id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
@@ -16,7 +16,7 @@ public class Request {
 	private String name;
 
 	@Column(name = "Amount", nullable = false)
-	private float amount;
+	private int amount;
 
 	@Column(name = "Date", nullable = false)
 	private String datetime;
@@ -30,6 +30,9 @@ public class Request {
 	@Column(name = "Status", nullable = false)
 	private String status;
 	
+	@Column(name = "Product_Id", nullable = false)
+	private int product_id;
+
 	protected Request() {
 	}
 
@@ -49,11 +52,11 @@ public class Request {
 		this.name = name;
 	}
 
-	public float getAmount() {
+	public int getAmount() {
 		return amount;
 	}
 
-	public void setAmount(float amount) {
+	public void setAmount(int amount) {
 		this.amount = amount;
 	}
 
@@ -89,6 +92,14 @@ public class Request {
 		this.status = status;
 	}
 
+	public int getProduct_id() {
+		return product_id;
+	}
+
+	public void setProduct_id(int product_id) {
+		this.product_id = product_id;
+	}
+
 	@Override
 	public String toString() {
 		return "Request [id=" + id + 
@@ -97,6 +108,7 @@ public class Request {
 		", datetime=" + datetime + 
 		", description=" + description + 
 		", branch=" + branch + 
-		", status=" + status + "]";
+		", status=" + status + 
+		", product_id=" + product_id + "]";
 	}
 }

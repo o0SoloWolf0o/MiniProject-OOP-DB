@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 public class CustomUserDetails implements UserDetails {
 	private static final long serialVersionUID = 1L;
 	private User user;
-	
+
 	public CustomUserDetails(User user) {
 		this.user = user;
 	}
@@ -17,17 +17,17 @@ public class CustomUserDetails implements UserDetails {
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		Set<Role> roles = user.getRoles();
 		List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-		
+
 		for (Role role : roles) {
 			authorities.add(new SimpleGrantedAuthority(role.getName()));
 		}
-		
+
 		return authorities;
 	}
 
 	public boolean hasRole(String roleName) {
-        return this.user.hasRole(roleName);
-    }
+		return this.user.hasRole(roleName);
+	}
 
 	@Override
 	public String getPassword() {

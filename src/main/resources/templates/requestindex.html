@@ -39,26 +39,28 @@
 	<table border="1" cellpadding="10">
 		<thead>
 			<tr>
-				<th><a th:href="@{'/request/page/' + ${currentPage} + '?sortField=id&sortDir=' + ${reverseSortDir}+ ${keyword != null ? '&keyword=' + keyword : ''}}">Product ID</a></th>
-				<th><a th:href="@{'/request/page/' + ${currentPage} + '?sortField=name&sortDir=' + ${reverseSortDir}+ ${keyword != null ? '&keyword=' + keyword : ''}}">Name</a></th>
+				<th><a th:href="@{'/request/page/' + ${currentPage} + '?sortField=id&sortDir=' + ${reverseSortDir}+ ${keyword != null ? '&keyword=' + keyword : ''}}">Request ID</a></th>
+				<th><a th:href="@{'/request/page/' + ${currentPage} + '?sortField=product_id&sortDir=' + ${reverseSortDir}+ ${keyword != null ? '&keyword=' + keyword : ''}}">Product ID</a></th>
 				<th><a th:href="@{'/request/page/' + ${currentPage} + '?sortField=amount&sortDir=' + ${reverseSortDir}+ ${keyword != null ? '&keyword=' + keyword : ''}}">Amount</a></th>
+				<th><a th:href="@{'/request/page/' + ${currentPage} + '?sortField=name&sortDir=' + ${reverseSortDir}+ ${keyword != null ? '&keyword=' + keyword : ''}}">Name</a></th>
+				<th><a th:href="@{'/request/page/' + ${currentPage} + '?sortField=branch&sortDir=' + ${reverseSortDir}+ ${keyword != null ? '&keyword=' + keyword : ''}}">Branch</a></th>
 				<th><a th:href="@{'/request/page/' + ${currentPage} + '?sortField=datetime&sortDir=' + ${reverseSortDir}+ ${keyword != null ? '&keyword=' + keyword : ''}}">Date</a></th>
 				<th><a th:href="@{'/request/page/' + ${currentPage} + '?sortField=description&sortDir=' + ${reverseSortDir}+ ${keyword != null ? '&keyword=' + keyword : ''}}">Description</a></th>
-				<th><a th:href="@{'/request/page/' + ${currentPage} + '?sortField=branch&sortDir=' + ${reverseSortDir}+ ${keyword != null ? '&keyword=' + keyword : ''}}">Branch</a></th>
 				<th><a th:href="@{'/request/page/' + ${currentPage} + '?sortField=status&sortDir=' + ${reverseSortDir}+ ${keyword != null ? '&keyword=' + keyword : ''}}">Status</a></th>
-
+				
 				<th sec:authorize="hasAnyAuthority('Admin')">Actions</th>
 				
 			</tr>
 		</thead>
 		<tbody>
 			<tr th:each="request : ${listRequest}">
-				<td th:text="${request.id}">Product ID</td>
-				<td th:text="${request.name}">Name</td>
+				<td th:text="${request.id}">Request ID</td>
+				<td th:text="${request.product_id}">Product ID</td>
 				<td th:text="${request.amount}">Amount</td>
+				<td th:text="${request.name}">Name</td>
+				<td th:text="${request.branch}">Branch</td>
 				<td th:text="${request.datetime}">Date</td>
 				<td th:text="${request.description}">Description</td>
-				<td th:text="${request.branch}">Branch</td>
 				<td th:text="${request.status}">Status</td>
 				<td sec:authorize="hasAnyAuthority('Admin')">
 					<a th:href="@{'/request/edit/' + ${request.id}}">Edit</a>
