@@ -23,7 +23,12 @@ public class AppController {
 	public String viewHomePage() {
 		return "index";
 	}
-	
+
+	@GetMapping("/store")
+	public String viewStorePage() {
+		return "store";
+	}
+
 	@GetMapping("/register")
 	public String showRegistrationForm(Model model) {
 		model.addAttribute("user", new User());

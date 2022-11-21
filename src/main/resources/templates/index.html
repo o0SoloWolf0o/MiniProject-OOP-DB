@@ -1,33 +1,335 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
+<html lang="en">
+
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ratatuilay</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
-    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-  </head>
-  
-  <body>
-    <div class="container text-center">
-      <div>
-        <h1>Welcome to the Spring Boot Demo</h1>
-      </div>
+    <link rel="stylesheet" href="css/slide_box.css"/>
+    <link rel= "icon" href= "images/logo project.png" type = "image/x-icon">
+</head>
 
-      <nav class="navbar">
-        
-        <a th:href="@{/}">Home</a>
-        <a th:href="@{/users}">List of Users</a>
-        <a th:href="@{/request}">List of Products</a>
-        <a th:href="@{/login}">Login</a>
-        <a th:href="@{/register}">Register</a>
-    </nav>
+<body>
+    <!-- navbar sections starts  -->
+    <header class="header">
+        <div class="logo">
+            <img src="images/logoproject.png" alt="logo-tab" height="80" width="80" preserveAspectRatio="none">
+            <img src="images/project banner.png" alt="logo-banner" height="80" width="140" preserveAspectRatio="none">
+        </div>
+        <nav class="navbar">
+            <a th:href="@{/}">MANU</a>
+            <a th:href="@{/users}">List of Users</a>
+            <a th:href="@{/store}">Store</a>
+            <a th:href="@{/request}">Tracking</a>
+            <a th:href="@{/request/new}">Request</a>
 
+            <a th:href="@{/login}" class="btn">Login</a>
+            <a th:href="@{/register}" class="btn">Register</a>
+        </nav>
+
+
+        <div class="fas fa-bars" id="menu-btn"></div>
+    </header>
+    <!-- navbar sections starts  -->
+   
+    <!-- home section stars  -->
+
+    <section class="home" id="home">
+        <div class="content">
+            <h1>New Flavor!</h1>
+            <p>Recommend new ice cream flavors to our customer, let them try something special</p>
+        </div>
+    </section>
+    <!-- home section ends -->
+
+    <div class="slider">
+        <span id="slide-1"></span>
+        <span id="slide-2"></span>
+        <span id="slide-3"></span>
+        <div class="image-container">
+          <img src="images/poster1.png" class="slide"  width="650" height="350"/>
+          <img src="images/poster2.png" class="slide" width="650" height="350"/>
+          <img src="images/poster3.png" class="slide" width="650" height="350"/>
+        </div>
     </div>
-  </body>
+    <div class="buttons">
+        <a href="#slide-1"></a>
+        <a href="#slide-2"></a>
+        <a href="#slide-3"></a>
+    </div>
+    <!-- features sectin starts  -->
+    
+    <section class="download" id="download">
+        <div class="heading">
+            <h1>Cone Size</h1>
+            <p>pick your fav cone!</p>
+        </div>
+        <div class="box-container">
+            <div class="box">
+                <img src="images/icon3.svg" alt="cone S">
+                <h3>Small (S)</h3>
+                <p></p>
+                <a href="" class="all-btn">Price : 25 Baht</a>
+            </div>
+    
+            <div class="box">
+                <img src="images/icon2.svg" alt="cone M">
+                <h3>Medium (M)</h3>
+                <p></p>
+                <a href="" class="all-btn">Price : 30 Baht</a>
+            </div>
+    
+            <div class="box">
+                <img src="images/icon.svg" alt="cone L">
+                <h3>Large (L)</h3>
+                <p></p>
+                <a href="" class="all-btn">Price : 40 Baht</a>
+            </div>
+        </div>
+    </section>
+    <section class="features" id="features">
+        <div class="row">
+            <div class="content">
+                <h1>Monday</h1>
+                <p>Blueberry Yogurt</p>
+                <div class="wrap-collabsible">
+                    <input id="collapsible" class="toggle" type="checkbox">
+                    <label for="collapsible" class="lbl-toggle">recipe</label>
+                    <div class="collapsible-content">
+                      <div class="content-inner">
+                        <p>
+                          QUnit is by calling one of the object that are embedded in JavaScript, and faster JavaScript program could also used with
+                          its elegant, well documented, and functional programming using JS, HTML pages Modernizr is a popular browsers without
+                          plug-ins. Test-Driven Development.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                
+                <p>Hokkaido Milk</p>
+                <div class="wrap-collabsible">
+                    <input id="collapsible2" class="toggle" type="checkbox">
+                    <label for="collapsible2" class="lbl-toggle">recipe</label>
+                    <div class="collapsible-content">
+                      <div class="content-inner">
+                        <p>
+                          QUnit is by calling one of the object that are embedded in JavaScript, and faster JavaScript program could also used with
+                          its elegant, well documented, and functional programming using JS, HTML pages Modernizr is a popular browsers without
+                          plug-ins. Test-Driven Development.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+                
+            <div class="content">
+                <h1>Tuesday</h1>
+                <p>Cream Cheese</p>
+                <div class="wrap-collabsible">
+                    <input id="collapsible3" class="toggle" type="checkbox">
+                    <label for="collapsible3" class="lbl-toggle">recipe</label>
+                    <div class="collapsible-content">
+                      <div class="content-inner">
+                        <p>
+                          QUnit is by calling one of the object that are embedded in JavaScript, and faster JavaScript program could also used with
+                          its elegant, well documented, and functional programming using JS, HTML pages Modernizr is a popular browsers without
+                          plug-ins. Test-Driven Development.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                <p>Apple Yuzu</p>
+                <div class="wrap-collabsible">
+                    <input id="collapsible4" class="toggle" type="checkbox">
+                    <label for="collapsible4" class="lbl-toggle">recipe</label>
+                    <div class="collapsible-content">
+                      <div class="content-inner">
+                        <p>
+                          QUnit is by calling one of the object that are embedded in JavaScript, and faster JavaScript program could also used with
+                          its elegant, well documented, and functional programming using JS, HTML pages Modernizr is a popular browsers without
+                          plug-ins. Test-Driven Development.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+
+            <div class="content">
+                <h1>Wednesday</h1>
+                <p>Dark Chocolate</p>
+                <div class="wrap-collabsible">
+                    <input id="collapsible4" class="toggle" type="checkbox">
+                    <label for="collapsible4" class="lbl-toggle">recipe</label>
+                    <div class="collapsible-content">
+                      <div class="content-inner">
+                        <p>
+                          QUnit is by calling one of the object that are embedded in JavaScript, and faster JavaScript program could also used with
+                          its elegant, well documented, and functional programming using JS, HTML pages Modernizr is a popular browsers without
+                          plug-ins. Test-Driven Development.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                <p>Milo School</p>
+                <div class="wrap-collabsible">
+                    <input id="collapsible5" class="toggle" type="checkbox">
+                    <label for="collapsible5" class="lbl-toggle">recipe</label>
+                    <div class="collapsible-content">
+                      <div class="content-inner">
+                        <p>
+                          QUnit is by calling one of the object that are embedded in JavaScript, and faster JavaScript program could also used with
+                          its elegant, well documented, and functional programming using JS, HTML pages Modernizr is a popular browsers without
+                          plug-ins. Test-Driven Development.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+
+            <div class="content">
+                <h1>Thursday</h1>
+                <p>Sea salt Caramel</p>
+                <div class="wrap-collabsible">
+                    <input id="collapsible6" class="toggle" type="checkbox">
+                    <label for="collapsible6" class="lbl-toggle">recipe</label>
+                    <div class="collapsible-content">
+                      <div class="content-inner">
+                        <p>
+                          QUnit is by calling one of the object that are embedded in JavaScript, and faster JavaScript program could also used with
+                          its elegant, well documented, and functional programming using JS, HTML pages Modernizr is a popular browsers without
+                          plug-ins. Test-Driven Development.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                <p>Houjicha</p>
+                <div class="wrap-collabsible">
+                    <input id="collapsible7" class="toggle" type="checkbox">
+                    <label for="collapsible7" class="lbl-toggle">recipe</label>
+                    <div class="collapsible-content">
+                      <div class="content-inner">
+                        <p>
+                          QUnit is by calling one of the object that are embedded in JavaScript, and faster JavaScript program could also used with
+                          its elegant, well documented, and functional programming using JS, HTML pages Modernizr is a popular browsers without
+                          plug-ins. Test-Driven Development.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            
+            <div class="content">
+                <h1>Friday</h1>
+                <p>Lychee Rose</p>
+                <div class="wrap-collabsible">
+                    <input id="collapsible8" class="toggle" type="checkbox">
+                    <label for="collapsible8" class="lbl-toggle">recipe</label>
+                    <div class="collapsible-content">
+                      <div class="content-inner">
+                        <p>
+                          QUnit is by calling one of the object that are embedded in JavaScript, and faster JavaScript program could also used with
+                          its elegant, well documented, and functional programming using JS, HTML pages Modernizr is a popular browsers without
+                          plug-ins. Test-Driven Development.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                <p>Pink Himalayan</p>
+                <div class="wrap-collabsible">
+                    <input id="collapsible9" class="toggle" type="checkbox">
+                    <label for="collapsible9" class="lbl-toggle">recipe</label>
+                    <div class="collapsible-content">
+                      <div class="content-inner">
+                        <p>
+                          QUnit is by calling one of the object that are embedded in JavaScript, and faster JavaScript program could also used with
+                          its elegant, well documented, and functional programming using JS, HTML pages Modernizr is a popular browsers without
+                          plug-ins. Test-Driven Development.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+
+            <div class="content">
+                <h1>Saturday</h1>
+                <p>Kyoho Grape</p>
+                <div class="wrap-collabsible">
+                    <input id="collapsible10" class="toggle" type="checkbox">
+                    <label for="collapsible10" class="lbl-toggle">recipe</label>
+                    <div class="collapsible-content">
+                      <div class="content-inner">
+                        <p>
+                          QUnit is by calling one of the object that are embedded in JavaScript, and faster JavaScript program could also used with
+                          its elegant, well documented, and functional programming using JS, HTML pages Modernizr is a popular browsers without
+                          plug-ins. Test-Driven Development.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                <p>Mandarin</p>
+                <div class="wrap-collabsible">
+                    <input id="collapsible11" class="toggle" type="checkbox">
+                    <label for="collapsible11" class="lbl-toggle">recipe</label>
+                    <div class="collapsible-content">
+                      <div class="content-inner">
+                        <p>
+                          QUnit is by calling one of the object that are embedded in JavaScript, and faster JavaScript program could also used with
+                          its elegant, well documented, and functional programming using JS, HTML pages Modernizr is a popular browsers without
+                          plug-ins. Test-Driven Development.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- features sectin ends -->
+
+    <!-- footer section starts  -->
+
+   <section class="footer" id="footer">
+        <h3>Contact</h3>
+       <div class="box-container">
+           <div class="box">
+               <a href="#"><i class="fas fa-phone"></i>+111-222-3333</a>
+               <a href="#"><i class="fas fa-phone"></i>+111-444-6666</a>
+            </div>
+            
+            <div class="box">
+                <a href="https://www.google.com/maps?q=kmutt" target="_blank"><i class="fas fa-map-marker-alt"></i>Bankok, thailand - 12345</a>
+               <a href="https://www.google.com/maps?q=tokyo" target="_blank"><i class="fas fa-map-marker-alt"></i>Tokyo, japan - 12222</a>
+           </div>
+
+           <div class="box">
+               <a href="#"><i class="fas fa-envelope"></i>ratatuilay_store@gmail.com</a>
+               <a href="#"><i class="fas fa-envelope"></i>ratatuilay_store@outlook.co.th</a>
+           </div>
+
+           <div class="box">
+               <a href="#"><i class="fab fa-facebook-f"></i>Ratatuilay_store</a>
+               <a href="#"><i class="fab fa-instagram"></i>Ratatuilayy.</a>
+           </div>
+       </div>
+
+
+       <div class="credit">created by
+           <a href="#" target="_blank"><span>Chill'n Team</span> | made your day</a>
+       </div>
+   </section>
+
+    <!-- footer section ends -->
+
+    <script src="js/main.js"></script>
+</body>
+
 </html>
