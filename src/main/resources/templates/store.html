@@ -7,20 +7,23 @@
     <title>Store</title>
     <link rel="stylesheet" href="css/store.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel= "icon" href= "images/logo project.png" type = "image/x-icon">
+    <link rel= "icon" href= "images/logoproject.png" type = "image/x-icon">
 </head>
 <body>
     <header class="header">
         <div class="logo">
-            <img src="images/logo project.png" alt="logo-tab" height="80" width="80" preserveAspectRatio="none">
+            <img src="images/logoproject.png" alt="logo-tab" height="80" width="80" preserveAspectRatio="none">
             <img src="images/project banner.png" alt="logo-banner" height="80" width="140" preserveAspectRatio="none">
         </div>
         <nav class="navbar">
             <a th:href="@{/}">MANU</a>
+            <a th:href="@{/users}">List of Users</a>
             <a th:href="@{/store}">Store</a>
-            <a href="#download">Tracking</a>
+            <a th:href="@{/request}">Tracking</a>
             <a th:href="@{/request/new}">Request</a>
-            <a href="login.html" class="btn">log in</a>
+
+            <a th:href="@{/login}" class="btn">Login</a>
+            <a th:href="@{/register}" class="btn">Register</a>
         </nav>
 
         <div class="fas fa-bars" id="menu-btn"></div>

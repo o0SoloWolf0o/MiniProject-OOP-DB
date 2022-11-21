@@ -2,17 +2,30 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>List Users</title>
 	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+	<link rel= "icon" href= "images/logoproject.png" type = "image/x-icon">
+	<link rel="stylesheet" href="css/slide_box.css"/>
 	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<nav class="navbar">
-        <a th:href="@{/}">Home</a>
-    </nav>
-<div class="container text-center">
+	<header class="header">
+        <div class="logo">
+            <img src="images/logoproject.png" alt="logo-tab" height="80" width="80" preserveAspectRatio="none">
+            <img src="images/project banner.png" alt="logo-banner" height="80" width="140" preserveAspectRatio="none">
+        </div>
+        <nav class="navbar">
+            <a th:href="@{/}">MANU</a>
+        </nav>
+        <div class="fas fa-bars" id="menu-btn"></div>
+    </header>
 
+
+	<div class="container text-center">
 	<div>
 		<form th:action="@{/logout}" method="post">
 			<p>
