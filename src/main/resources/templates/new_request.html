@@ -1,93 +1,107 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/req.css">
-	<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-	<title>Create New Request</title>
+    <link rel="stylesheet" href="../static/css/req.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel= "icon" href= "images/logo project.png" type = "image/x-icon">
+    <title>Request</title>
 </head>
 <body>
-	<div align="center">	
-		<h1>Create New Request</h1>
-		<br/>
-		<form action="#" th:action="@{/request/save}" th:object="${request}" method="post">
-			<table border="0" cellpadding="10">
-				<tr>
-					<td>Product ID:</td>
-					<td>
-						<input
-						type="text" 
-						th:field="*{product_id}" 
-						placeholder="Enter Product ID"
-						/>
-					</td>
-				</tr>
-				<tr>
-					<td>Amount:</td>
-					<td>
-						<input 
-						type="text" 
-						th:field="*{amount}" 
-						placeholder="Amount of product"
-						/>
-					</td>
-				</tr>		
-				<tr>
-					<td>Request Name:</td>
-					<td>
-						<input 
-						type="text" 
-						th:field="*{name}" 
-						placeholder="Name of who order"
-						/>
-					</td>
-				</tr>
-				<tr>
-					<td>Branch:</td>
-					<td>
-						<select th:field="*{branch}">
-							<option value="KMUTT">KMUTT</option>
-							<option value="KMUTNB">KMUTNB</option>
-							<option value="KMITL">KMITL</option>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td>Date:</td>
-					<td>
-						<input 
-						type="text" 
-						th:field="*{datetime}" 
-						placeholder="DD-MM-YYYY"
-						/>
-					</td>
-				</tr>				
-				<tr>
-					<td>Description:</td>
-					<td>
-						<input 
-						type="text" 
-						th:field="*{description}" 
-						placeholder="Description of Request"
-						/>
-					</td>
-				</tr>	
-				<tr>
-					<td>Status:</td>
-					<td>
-						<select th:field="*{status}">
-							<option value="Preparing">Preparing</option>
-						</select>
-					</td>
-				</tr>
+    <div class="container">
+        <div class="title">Request</div>
+        <div class="content">
+            <form action="#"> 
+            <div class="user-details">
+                <!--input type="radio" name="type" id="dot-1">
+                <input type="radio" name="type" id="dot-2"-->
+                
+                <div class="category">
+                    <!--label for="dot-1">
+                        <span class="dot one"></span>
+                        <span class="type">Equipment</span>
+                    </!--label>
+                    <label-- for="dot-2">
+                        <span class="dot two"></span>
+                        <span class="type">Ingredient</span>
+                    </label-->
+                <div class="select-menu">
+                    <span class="branch-title">Select your branch</span>
+                    <div class="select-btn">
+                            <span class="sBtn-text">Branch</span>
+                            <i class="bx bx-chevron-down"></i>
+                    </div>
+                        <ul class="options">
+                            <li class="option">
+                                <i class="bx bxl-equipment"></i>
+                                <span class="option-text">Central Pinklao</span>
+                            </li>
+                            <li class="option">
+                                <i class="bx bxl-ingredient"></i>
+                                <span class="option-text">Siam Square One</span>
+                            </li>
+                            <li class="option">
+                                <i class="bx bxl-ingredient"></i>
+                                <span class="option-text">ICONSIAM</span>
+                            </li>
+                            <li class="option">
+                                <i class="bx bxl-ingredient"></i>
+                                <span class="option-text">Central World</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
-				<tr>
-					<td colspan="2"><button type="submit">Save</button></td>
-				</tr>
-			</table>
-		</form>
-	</div>
+                <div class="category">
+                    <tr>
+                        <td>Select your brach</td>
+                        <td>
+                            <div class="select-btn">
+                                <select name="brach">
+                                <option value="Central Pinklao">Central Pinklao</option>
+                                <option value="Siam Square One">Siam Square One</option>
+                                <option value="ICONSIAM">ICONSIAM</option>
+                                <option value="Central World">Central World</option>
+                            </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Select your product</td>
+                        <td>
+                            <select name="product">
+                                <option value="Heavy cream">Heavy cream</option>
+                                <option value="Butter">Butter</option>
+                                <option value="Sugar">Sugar</option>
+                            </select>
+                        </td>
+                    </tr>
+                </div>
+                
+
+                    <div class="input-box">
+                        <span class="details">Date</span>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Amount</span>
+                        <input type="text" placeholder="0" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Description</span>
+                        <input type="text" placeholder="Detail of request" required>
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Sent Request">
+                </div>
+            </div>
+        </form>
+    </div>
+        
+    <script src="js/req.js"></script>
+    
 </body>
 </html>
