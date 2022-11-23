@@ -72,7 +72,7 @@ public class AppController {
 	public String viewRequestPage(Model model) {
 
 		String keyword = null;
-		return viewPage(model, 1, "name", "asc", keyword);
+		return viewPage(model, 1, "id", "asc", keyword);
 	}
 
 	@RequestMapping("/request/page/{pageNum}")
@@ -103,6 +103,7 @@ public class AppController {
 	
 	@RequestMapping("/request/new")
 	public String showNewRequestForm(Model model) {
+
 		Request request = new Request();
 		model.addAttribute("request", request);
 		

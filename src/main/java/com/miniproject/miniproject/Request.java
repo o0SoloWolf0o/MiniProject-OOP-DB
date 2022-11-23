@@ -12,9 +12,6 @@ public class Request {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "Name", nullable = false)
-	private String name;
-
 	@Column(name = "Amount", nullable = false)
 	private int amount;
 
@@ -42,14 +39,6 @@ public class Request {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public int getAmount() {
@@ -102,8 +91,7 @@ public class Request {
 
 	@Override
 	public String toString() {
-		return "Request [id=" + id + 
-		", name=" + name + 
+		return "Request [id=" + id +
 		", amount=" + amount + 
 		", datetime=" + datetime + 
 		", description=" + description + 

@@ -8,7 +8,9 @@
 	<title>List Users</title>
 	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
 	<link rel= "icon" href= "images/logoproject.png" type = "image/x-icon">
+	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/slide_box.css"/>
+
 	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
@@ -20,14 +22,20 @@
         </div>
         <nav class="navbar">
             <a th:href="@{/}">MANU</a>
+            <a th:href="@{/users}">List of Users</a>
+            <a th:href="@{/store}">Store</a>
+            <a th:href="@{/request}">Tracking</a>
+            <a th:href="@{/request/new}">Request</a>
         </nav>
+
+
         <div class="fas fa-bars" id="menu-btn"></div>
     </header>
 
+	</br></br></br></br></br></br></br></br></br></br></br>
 
 	<div class="container text-center">
 	<div>
-		<form th:action="@{/logout}" method="post">
 			<p>
 				Welcome <b>[[${#request.userPrincipal.principal.fullName}]] </b>
 				<span sec:authentication="principal.authorities"></span>
