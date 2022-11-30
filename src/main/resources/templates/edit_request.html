@@ -1,89 +1,367 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-<title>Edit Request</title>
-</head>
-<body>
-	<div align="center">
-		<h1>Edit Request</h1>
-		<br/>
-		<form action="#" th:action="@{/request/save}" th:object="${request}" method="post">
-			<table border="0" cellpadding="10">
-				<tr>
-					<td>Request ID:</td>
-					<td>
-						<input 
-						type="text" 
-						th:field="*{id}" 
-						readonly="readonly" 
-						/>
-					</td>
-				</tr>
-				<tr>
-					<td>Product ID:</td>
-					<td>
-						<input
-						type="text" 
-						th:field="*{product_id}" 
-						placeholder="Enter Product ID"
-						/>
-					</td>
-				</tr>
-				<tr>
-					<td>Amount:</td>
-					<td>
-						<input 
-						type="text" 
-						th:field="*{amount}" 
-						placeholder="Amount of product"
-						/>
-					</td>
-				</tr>				
-				<tr>
-					<td>Branch:</td>
-					<td>
-						<select th:field="*{branch}">
-							<option value="KMUTT">KMUTT</option>
-							<option value="KMUTNB">KMUTNB</option>
-							<option value="KMITL">KMITL</option>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td>Date:</td>
-					<td>
-						<input 
-						type="text" 
-						th:field="*{datetime}" 
-						placeholder="DD-MM-YYYY"
-						/>
-					</td>
-				</tr>				
-				<tr>
-					<td>Description:</td>
-					<td>
-						<input 
-						type="text" 
-						th:field="*{description}" 
-						placeholder="Description of Request"
-						/>
-					</td>
-				</tr>	
-				<tr>
-					<td>Status:</td>
-					<td>
-						<select th:field="*{status}">
-							<option value="Requesting">Preparing</option>
-							<option value="Preparing">Preparing</option>
-							<option value="Sending">Sending</option>
-							<option value="Finished">Finished</option>
-						</select>
-					</td>
-				</tr>
-					<td colspan="2"><button type="submit">Save</button></td>
-				</tr>
-			</table>
-		</form>
-	</div>
-</body>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <title>Edit Request</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        background: linear-gradient(135deg, #9b59b6, #71b7e6);
+      }
+      .container {
+        max-width: 700px;
+        height: 90%;
+        width: 100%;
+        background-color: #fff;
+        padding: 25px 30px;
+        border-radius: 5px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+      }
+      .container .title {
+        font-size: 25px;
+        font-weight: 500;
+        position: relative;
+        bottom: 10px;
+      }
+      .container .title::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 3px;
+        width: 30px;
+        border-radius: 5px;
+        background: linear-gradient(135deg, #9b59b6, #71b7e6);
+      }
+      .content form .user-details {
+        font-weight: 500;
+        font-size: 17px;
+        display: inline;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 20px 0 12px 0;
+      }
+      form .user-details .input-box {
+        margin-bottom: 10px;
+        width: 100%;
+      }
+      form .input-box span.details {
+        display: block;
+        font-weight: 500;
+        margin-bottom: 5px;
+      }
+      .user-details .input-box input {
+        height: 45px;
+        width: 100%;
+        outline: none;
+        font-size: 16px;
+        border-radius: 5px;
+        padding-left: 15px;
+        border: 1px solid #ccc;
+        border-bottom-width: 2px;
+        transition: all 0.3s ease;
+      }
+      .user-details .input-box input:focus,
+      .user-details .input-box input:valid {
+        border-color: #9b59b6;
+      }
+      form .type-details .type-title {
+        font-weight: 500;
+        font-size: 17px;
+        display: inline;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 20px 0 12px 0;
+      }
+      .content form .branch-title {
+        font-weight: 500;
+        font-size: 17px;
+        flex-wrap: wrap;
+        display: inline-flex;
+        justify-content: space-between;
+        margin: -10px 0 12px 0;
+      }
+      form .category {
+        display: inline-flex;
+        margin-top: 25px;
+        margin-right: 25px;
+        width: 100%;
+        margin: 8px 0;
+        justify-content: space-between;
+      }
+      form .category label {
+        margin-top: 3px;
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+      }
+      form .category label .dot {
+        height: 18px;
+        width: 18px;
+        border-radius: 80%;
+        margin-right: 10px;
+        background: #d9d9d9;
+        border: 5px solid transparent;
+        transition: all 0.3s ease;
+      }
+      #dot-1:checked ~ .category label .one,
+      #dot-2:checked ~ .category label .two {
+        background: #9b59b6;
+        border-color: #d9d9d9;
+      }
+      form input[type="radio"] {
+        display: none;
+      }
+      form .button {
+        height: 45px;
+        margin: 35px 0;
+      }
+      form .button input {
+        height: 100%;
+        width: 100%;
+        border-radius: 5px;
+        border: none;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background: linear-gradient(135deg, #71b7e6, #9b59b6);
+      }
+      form .button input:hover {
+        /* transform: scale(0.99); */
+        background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+      }
+      @media (max-width: 584px) {
+        .container {
+          max-width: 100%;
+        }
+        form .user-details .input-box {
+          margin-bottom: 15px;
+          width: 100%;
+        }
+        form .category {
+          width: 100%;
+        }
+        .content form .user-details {
+          max-height: 300px;
+          overflow-y: scroll;
+        }
+        .user-details::-webkit-scrollbar {
+          width: 5px;
+        }
+      }
+      @media (max-width: 459px) {
+        .container .content .category {
+          flex-direction: column;
+        }
+      }
+      .select-menu {
+        width: 300px;
+        height: 10px;
+        margin-top: 0px;
+        margin-bottom: 80px;
+      }
+      .select-menu .select-btn {
+        display: flex;
+        height: 45px;
+        background: #fff;
+        padding: 20px;
+        font-size: 18px;
+        font-weight: 300;
+        border-radius: 8px;
+        align-items: center;
+        cursor: pointer;
+        justify-content: space-between;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+      .select-btn i {
+        font-size: 25px;
+        transition: 0.3s;
+      }
+      .select-menu.active .select-btn i {
+        transform: rotate(-180deg);
+      }
+      .select-menu .options {
+        position: relative;
+        padding: 20px;
+        margin-top: 10px;
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+        display: none;
+      }
+      .select-menu.active .options {
+        display: block;
+      }
+      .options .option {
+        display: flex;
+        height: 55px;
+        cursor: pointer;
+        padding: 0 16px;
+        border-radius: 8px;
+        align-items: center;
+        background: #fff;
+      }
+      .options .option:hover {
+        background: #f2f2f2;
+      }
+      .option i {
+        font-size: 25px;
+        margin-right: 10px;
+      }
+      .option .option-text {
+        font-size: 15px;
+        color: #333;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="title">Edit Request</div>
+      <div class="content">
+        <form
+          action="#"
+          th:action="@{/request/save}"
+          th:object="${request}"
+          method="post"
+        >
+          <tr>
+            <td>Request ID:</td>
+            <td>
+              <input type="text" th:field="*{id}" readonly="readonly" />
+            </td>
+          </tr>
+          <div class="user-details">
+            <div class="category">
+              <tr>
+                <td>Select your brach</td>
+                <td>
+                  <select th:field="*{branch}" required>
+                    <option value="Central Pinklao">Central Pinklao</option>
+                    <option value="Siam Square One">Siam Square One</option>
+                    <option value="ICONSIAM">ICONSIAM</option>
+                    <option value="Central World">Central World</option>
+                  </select>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Select your product</td>
+                <td>
+                  <select th:field="*{product_id}" required>
+                    <option value="Heavy_cream">Heavy cream</option>
+                    <option value="Butter">Butter</option>
+                    <option value="Sugar">Sugar</option>
+                    <option value="Chocolate">Chocolate</option>
+                    <option value="Salt">Salt</option>
+                    <option value="Blueberry_Jam">Blueberry Jam</option>
+                    <option value="Hokkaido_Milk">Hokkaido Milk</option>
+                    <option value="Cream_Cheese">Cream Cheese</option>
+                    <option value="Apple_Yuzu_Syrup">Apple Yuzu Syrup</option>
+                    <option value="Milo_Powder">Milo Powder</option>
+                    <option value="Houjicha_Powder">Houjicha Powder</option>
+                    <option value="Lychee_Syrup">Lychee Syrup</option>
+                    <option value="Pink_Himalayan">Pink Himalayan</option>
+                    <option value="Kyoho_Grapes_Syrup">Kyoho Grapes Syrup</option>
+                    <option value="Mandarin_Syrup">Mandarin Syrup</option>
+                    <option value="Brown_Sugar">Brown Sugar</option>
+                    <option value="Egg">Egg</option>
+                    <option value="Honey">Honey</option>
+                    <option value="Blubery">Blubery</option>
+                    <option value="Starwbery">Starwbery</option>
+                    <option value="Strawberry_Jam">Strawberry Jam</option>
+                    <option value="Raspberry_Jam">Raspberry Jam</option>
+                    <option value="Blackberry_Jam">Blackberry Jam</option>
+                    <option value="Peanut_Butter">Peanut Butter</option>
+                    <option value="Mango_Jam">Mango Jam</option>
+                    <option value="Mango_Syrup">Mango Syrup</option>
+                    <option value="Peach_Syrup">Peach Syrup</option>
+                    <option value="Peach_Jam">Peach Jam</option>
+                    <option value="Pineapple_Jam">Pineapple Jam</option>
+                    <option value="Pineapple_Syrup">Pineapple Syrup</option>
+                    <option value="Pumpkin_Jam">Pumpkin Jam</option>
+                    <option value="Pumpkin_Syrup">Pumpkin Syrup</option>
+
+                    <option value="Light_Bulb">Light Bulb</option>
+                    <option value="Cup">Cup</option>
+                    <option value="Straw">Straw</option>
+                    <option value="Spoon">Spoon</option>
+                    <option value="Fork">Fork</option>
+                    <option value="Knife">Knife</option>
+                    <option value="Napkin">Napkin</option>
+                    <option value="Table">Table</option>
+                    <option value="Chair">Chair</option>
+                    <option value="Ice_Cream_Maker">Ice-Cream Maker</option>
+                    <option value="Ice_Cream_Cone">Ice-Cream Cone</option>
+                    <option value="Ice_Cream_Scoop">Ice-Cream Scoop</option>
+                    <option value="Whipped_Cream">Whipped Cream</option>
+                  </select>
+                </td>
+              </tr>
+            </div>
+
+            <div class="input-box">
+              <span class="details">Date</span>
+              <input type="date" th:field="*{datetime}" required />
+            </div>
+
+            <div class="input-box">
+              <span class="details">Amount</span>
+              <input
+                type="text"
+                th:field="*{amount}"
+                placeholder="Amount of product"
+                required
+              />
+            </div>
+
+            <div class="input-box">
+              <span class="details">Description</span>
+              <input
+                type="text"
+                th:field="*{description}"
+                placeholder="Detail of request"
+              />
+            </div>
+
+            <td>
+			  <span class="details">Status</span>
+              <select th:field="*{status}">
+                <option value="Requesting">Preparing</option>
+                <option value="Preparing">Preparing</option>
+                <option value="Sending">Sending</option>
+                <option value="Finished">Finished</option>
+              </select>
+            </td>
+          </div>
+		  <br/><br/>
+		<div>
+          <tr>
+            <td colspan="5"><button type="submit">Save</button></td>
+          </tr>
+		</div>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>
