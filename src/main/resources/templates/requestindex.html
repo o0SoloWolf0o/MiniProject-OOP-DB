@@ -95,10 +95,12 @@
 		}
 		
 		.header{
+			text-align: right;
 			padding: 3rem 9%;
-			display: flex;
+
 			justify-content: space-between;
-			align-items: center;
+			align-items: right;
+			text-align: right;
 			position: fixed;
 			top: 0;
 			right: 0%;
@@ -379,7 +381,8 @@
 
 <div align="center">
 	<header class="header">
-        <nav class="navbar">
+		
+        <nav class="navbar" >
             <a th:href="@{/}">MANU</a>
             <a th:href="@{/users}">List of Users</a>
             <a th:href="@{/store}">Store</a>
@@ -388,6 +391,7 @@
         </nav>
         <div class="fas fa-bars" id="menu-btn"></div>
     </header>
+
 	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 	<form th:action="@{/request/page/1}">
