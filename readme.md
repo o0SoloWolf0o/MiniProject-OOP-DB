@@ -1,7 +1,6 @@
 # Ratatuilay Project
 
-Website for organizing data management 
-and coordinating within the organization
+Website for organizing data management and coordinating within the organization
 
 ## Getting Started
 You can get started with # Ratatuilay Project at [Ratatuilay Web At](https://github.com/o0SoloWolf0o/MiniProject-OOP-DB)
