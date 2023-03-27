@@ -49,7 +49,7 @@ public class UserRepositoryTest {
 		user.setPassword("asdasd");
 		user.setFirstname("Pumipat");
 		user.setLastname("Korncharornpisuit");
-		user.setTelphone("012-345-6789");
+		// user.setTelphone("012-345-6789");
 
 		Role roleuser = roleRepo.findByName("User");
 		user.addRole(roleuser);
