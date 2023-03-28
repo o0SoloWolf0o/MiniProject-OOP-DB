@@ -23,8 +23,8 @@ public class User {
 	@Column(name = "last_name", nullable = false, length = 20)
 	private String lastname;
     
-    // @Column(nullable = false)
-    // private String telphone;
+    @Column(nullable = false)
+    private String telphone;
 
     private boolean enabled;
 
@@ -88,13 +88,13 @@ public class User {
         this.lastname = lastname;
     }
 
-    // public String getTelphone() {
-    //     return telphone;
-    // }
+    public String getTelphone() {
+        return telphone;
+    }
 
-    // public void setTelphone(String telphone) {
-    //     this.telphone = telphone;
-    // }
+    public void setTelphone(String telphone) {
+        this.telphone = telphone;
+    }
     
 	public String getFullName() {
 		return this.firstname + " " + this.lastname;

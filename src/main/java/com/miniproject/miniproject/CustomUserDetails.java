@@ -39,10 +39,10 @@ public class CustomUserDetails implements UserDetails {
 		return user.getEmail();
 	}
 
-	// @Override
-	// public String getTelphone() {
-	// 	return user.getTelphone();
-	// }
+	@Override
+	public String getTelphone() {
+	    return user.getTelphone();
+	}
 
 	@Override
 	public boolean isAccountNonExpired() {
