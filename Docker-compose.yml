@@ -1,0 +1,40 @@
+version: '3.8'
+services:
+
+  mysql-container:
+    container_name: mysql-container
+    image: mysql
+    ports:
+      - 8081:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: miniproject
+    networks: 
+      - springboot-mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "--password=password"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  springboot-container:
+    build: .
+    container_name: springboot-container
+    image: miniproject
+    ports:
+      - 8080:8080
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-container:3306/miniproject
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: password
+    networks:
+      - springboot-mysql
+    depends_on:
+      mysql-container:
+        condition: service_healthy
+    restart: unless-stopped
+
+networks:
+  springboot-mysql:
+    driver: bridge
