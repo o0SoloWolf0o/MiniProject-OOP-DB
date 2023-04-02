@@ -7,15 +7,20 @@ services:
     ports:
       - 8081:3306
     environment:
-      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: miniproject
-    networks: 
+    networks:
       - springboot-mysql
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "--password=password"]
       interval: 10s
       timeout: 5s
       retries: 5
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 512M
     restart: unless-stopped
 
   springboot-container:
@@ -26,13 +31,18 @@ services:
       - 8080:8080
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql-container:3306/miniproject
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: password
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     networks:
       - springboot-mysql
     depends_on:
       mysql-container:
         condition: service_healthy
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 512M
     restart: unless-stopped
 
 networks:
