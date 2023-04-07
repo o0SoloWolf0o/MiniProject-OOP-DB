@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-container
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql-container
+  template:
+    metadata:
+      labels:
+        app: mysql-container
+    spec:
+      containers:
+      - name: mysql-container
+        image: mysql
+        ports:
+        - containerPort: 3306
+        envFrom:
+        - secretRef:
+            name: miniproject-secret
+        resources:
+          limits:
+            cpu: 500m
+            memory: 512Mi
+      restartPolicy: Always

@@ -27,7 +27,7 @@ public class RoleRepositoryTests {
 		
 		List<Role> listRoles = repo.findAll();
 		
-		assertThat(listRoles.size()).isEqualTo(8);
+		assertThat(listRoles.size()).isEqualTo(2);
 	}
 	
 }

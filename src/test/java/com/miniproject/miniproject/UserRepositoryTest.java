@@ -67,16 +67,15 @@ public class UserRepositoryTest {
 
 		user.setEnabled(true);
 		
-
 		assertThat(savedUser.getRoles().size()).isEqualTo(2);
 
 	}
 
-	// @Test
-	// public void testFindByEmail() {
-	// 	String email = "p.kornpisuit@gmail.com";
-	// 	User user = userRepo.findByEmail(email);
+	@Test
+	public void testFindByEmail() {
+		String email = "p.kornpisuit@gmail.com";
+		User user = userRepo.findByEmail(email);
 		
-	// 	assertThat(user.getEmail()).isEqualTo(email);
-	// }
+		assertThat(user.getEmail()).isEqualTo(email);
+	}
 }
