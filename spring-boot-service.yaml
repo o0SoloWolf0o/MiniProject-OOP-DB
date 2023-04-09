@@ -4,9 +4,10 @@ metadata:
   name: springboot-container-service
 spec:
   selector:
-    app: springboot-container
+    app: spring-boot-app
   ports:
     - protocol: TCP
       port: 80
       targetPort: 8080
-  type: LoadBalancer
+      nodePort: 30080
+  type: NodePort
