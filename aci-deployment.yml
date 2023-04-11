@@ -1,0 +1,44 @@
+apiVersion: '2018-10-01'
+location: australiaeast
+name: miniproject-container-group
+properties:
+  containers:
+  - name: springboot-container
+    properties:
+      image: pumipat/miniproject:latest
+      ports:
+      - protocol: tcp
+        port: 8080
+      environmentVariables:
+      - name: SPRING_DATASOURCE_URL
+        value: jdbc:mysql://mysql-container:3306/miniproject
+      - name: SPRING_DATASOURCE_USERNAME
+        value: root
+      - name: SPRING_DATASOURCE_PASSWORD
+        value: password
+      resources:
+        requests:
+          cpu: 0.5
+          memoryInGb: 0.5
+  - name: mysql-container
+    properties:
+      image: mysql
+      ports:
+      - protocol: tcp
+        port: 3306
+      environmentVariables:
+      - name: MYSQL_ROOT_PASSWORD
+        value: password
+      - name: MYSQL_DATABASE
+        value: miniproject
+      resources:
+        requests:
+          cpu: 0.5
+          memoryInGb: 0.5
+  osType: Linux
+  ipAddress:
+    type: Public
+    dnsNameLabel: miniproject-wonderfuldune-ae90ef88
+    ports:
+    - protocol: tcp
+      port: 8080
