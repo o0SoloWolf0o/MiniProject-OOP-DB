@@ -31,7 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		return authProvider;
 	}
 
-	@Override
+	/*~~(Migrate manually based on https://spring.io/blog/2022/02/21/spring-security-without-the-websecurityconfigureradapter)~~>*/@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.authenticationProvider(authenticationProvider());
 	}
@@ -39,7 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http.authorizeRequests()
+        http.authorizeHttpRequests()
 				.antMatchers("/users").hasAnyAuthority("Admin")
 				.antMatchers("/users/**").hasAnyAuthority("Admin")
 				.antMatchers("/request/edit/**").hasAnyAuthority("Admin")
