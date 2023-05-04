@@ -1,3 +1,0 @@
-grafana:
-  adminPassword: password
-# helm upgrade grafana grafana/grafana --set adminPassword=password

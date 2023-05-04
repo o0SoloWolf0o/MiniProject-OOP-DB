@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: springboot-container
+  namespace: my-spring-boot
 spec:
   replicas: 3
   selector:
