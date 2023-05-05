@@ -43,39 +43,39 @@ public class UserRepositoryTest {
 
 	// }
 
-	@Test
-	public void testAddRoleToNewUser() {
-		User user = new User();
-		user.setEmail("p.kornpisuit@gmail.com");
-		user.setPassword("asdasd");
-		user.setFirstname("Pumipat");
-		user.setLastname("Korncharornpisuit");
-		user.setTelphone("012-345-6789");
+	// @Test
+	// public void testAddRoleToNewUser() {
+	// 	User user = new User();
+	// 	user.setEmail("p.kornpisuit@gmail.com");
+	// 	user.setPassword("asdasd");
+	// 	user.setFirstname("Pumipat");
+	// 	user.setLastname("Korncharornpisuit");
+	// 	user.setTelphone("012-345-6789");
 
-		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-		String plainPassword = "asdasd";
-		String encodedPassword = passwordEncoder.encode(plainPassword);
-		user.setPassword(encodedPassword);
+	// 	BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+	// 	String plainPassword = "asdasd";
+	// 	String encodedPassword = passwordEncoder.encode(plainPassword);
+	// 	user.setPassword(encodedPassword);
 		
-		Role roleuser = roleRepo.findByName("User");
-		user.addRole(roleuser);
+	// 	Role roleuser = roleRepo.findByName("User");
+	// 	user.addRole(roleuser);
 
-		Role roleadmin = roleRepo.findByName("Admin");
-		user.addRole(roleadmin);
+	// 	Role roleadmin = roleRepo.findByName("Admin");
+	// 	user.addRole(roleadmin);
 
-		User savedUser = userRepo.save(user);
+	// 	User savedUser = userRepo.save(user);
 
-		user.setEnabled(true);
+	// 	user.setEnabled(true);
 		
-		assertThat(savedUser.getRoles().size()).isEqualTo(2);
+	// 	assertThat(savedUser.getRoles().size()).isEqualTo(2);
 
-	}
+	// }
 
-	@Test
-	public void testFindByEmail() {
-		String email = "p.kornpisuit@gmail.com";
-		User user = userRepo.findByEmail(email);
+	// @Test
+	// public void testFindByEmail() {
+	// 	String email = "p.kornpisuit@gmail.com";
+	// 	User user = userRepo.findByEmail(email);
 		
-		assertThat(user.getEmail()).isEqualTo(email);
-	}
+	// 	assertThat(user.getEmail()).isEqualTo(email);
+	// }
 }

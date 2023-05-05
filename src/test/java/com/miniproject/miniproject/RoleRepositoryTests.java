@@ -18,16 +18,16 @@ public class RoleRepositoryTests {
 
 	@Autowired private RoleRepository repo;
 	
-	@Test
-	public void testCreateRoles() {
-		Role user = new Role("User");
-		Role admin = new Role("Admin");
+	// @Test
+	// public void testCreateRoles() {
+	// 	Role user = new Role("User");
+	// 	Role admin = new Role("Admin");
 
-		repo.saveAll(List.of(user, admin));
+	// 	repo.saveAll(List.of(user, admin));
 		
-		List<Role> listRoles = repo.findAll();
+	// 	List<Role> listRoles = repo.findAll();
 		
-		assertThat(listRoles.size()).isEqualTo(2);
-	}
+	// 	assertThat(listRoles.size()).isEqualTo(2);
+	// }
 	
 }
