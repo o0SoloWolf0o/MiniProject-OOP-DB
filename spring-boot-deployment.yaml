@@ -20,17 +20,14 @@ spec:
         - containerPort: 8080
         env:
         - name: SPRING_DATASOURCE_URL
-          value: jdbc:mysql://mysql:3306/miniproject
+          value: jdbc:mysql://miniproject.mysql.database.azure.com:3306/miniproject?useSSL=true&requireSSL=true
         - name: SPRING_DATASOURCE_USERNAME
-          valueFrom:
-            secretKeyRef:
-              name: mysql-secret
-              key: SPRING_DATASOURCE_USERNAME
+          value: pumipatroot@miniproject
         - name: SPRING_DATASOURCE_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: mysql-secret
-              key: MYSQL_ROOT_PASSWORD
+              name: azure-mysql-secret
+              key: MYSQL_PASSWORD
         resources:
           limits:
             cpu: "0.50"
