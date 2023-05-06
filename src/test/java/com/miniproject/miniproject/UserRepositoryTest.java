@@ -1,15 +1,15 @@
 package com.miniproject.miniproject;
 
-import static org.assertj.core.api.Assertions.assertThat;
+// import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
+// import org.junit.jupiter.api.Test;
+// import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 // import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.annotation.Rollback;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+// import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 @DataJpaTest
@@ -18,11 +18,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class UserRepositoryTest {
 
 	
-	@Autowired
-	private UserRepository userRepo;
+	// @Autowired
+	// private UserRepository userRepo;
 	
-	@Autowired
-	private RoleRepository roleRepo;
+	// @Autowired
+	// private RoleRepository roleRepo;
 	
 	// @Autowired
 	// private TestEntityManager entityManager;
