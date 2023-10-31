@@ -1,15 +1,15 @@
 package com.miniproject.miniproject;
 
-// import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
-// import org.junit.jupiter.api.Test;
-// import org.springframework.beans.factory.annotation.Autowired;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-// import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.annotation.Rollback;
-// import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 @DataJpaTest
@@ -18,14 +18,14 @@ import org.springframework.test.annotation.Rollback;
 public class UserRepositoryTest {
 
 	
-	// @Autowired
-	// private UserRepository userRepo;
+	@Autowired
+	private UserRepository userRepo;
 	
-	// @Autowired
-	// private RoleRepository roleRepo;
+	@Autowired
+	private RoleRepository roleRepo;
 	
-	// @Autowired
-	// private TestEntityManager entityManager;
+	@Autowired
+	private TestEntityManager entityManager;
 
 	// @Test
 	// public void testCreateUser() {
@@ -43,33 +43,33 @@ public class UserRepositoryTest {
 
 	// }
 
-	// @Test
-	// public void testAddRoleToNewUser() {
-	// 	User user = new User();
-	// 	user.setEmail("p.kornpisuit@gmail.com");
-	// 	user.setPassword("asdasd");
-	// 	user.setFirstname("Pumipat");
-	// 	user.setLastname("Korncharornpisuit");
-	// 	user.setTelphone("012-345-6789");
+	@Test
+	public void testAddRoleToNewUser() {
+		User user = new User();
+		user.setEmail("p.kornpisuit@gmail.com");
+		user.setPassword("asdasd");
+		user.setFirstname("Pumipat");
+		user.setLastname("Korncharornpisuit");
+		user.setTelphone("012-345-6789");
 
-	// 	BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-	// 	String plainPassword = "asdasd";
-	// 	String encodedPassword = passwordEncoder.encode(plainPassword);
-	// 	user.setPassword(encodedPassword);
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		String plainPassword = "asdasd";
+		String encodedPassword = passwordEncoder.encode(plainPassword);
+		user.setPassword(encodedPassword);
 		
-	// 	Role roleuser = roleRepo.findByName("User");
-	// 	user.addRole(roleuser);
+		Role roleuser = roleRepo.findByName("User");
+		user.addRole(roleuser);
 
-	// 	Role roleadmin = roleRepo.findByName("Admin");
-	// 	user.addRole(roleadmin);
+		Role roleadmin = roleRepo.findByName("Admin");
+		user.addRole(roleadmin);
 
-	// 	User savedUser = userRepo.save(user);
+		User savedUser = userRepo.save(user);
 
-	// 	user.setEnabled(true);
+		user.setEnabled(true);
 		
-	// 	assertThat(savedUser.getRoles().size()).isEqualTo(2);
+		assertThat(savedUser.getRoles().size()).isEqualTo(2);
 
-	// }
+	}
 
 	// @Test
 	// public void testFindByEmail() {
